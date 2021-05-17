@@ -1,0 +1,14 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.trailer{
+    border: 1px solid red;
+    height: 200px;
+}
+
+.poster-details{
+    border: 1px solid green;
+    height: 400px;
+}
