@@ -1,5 +1,7 @@
 <?php
 include "../classes/movie.php";
+include "../classes/schedule/php";
+$schedule_id = $_GET['schedule_id'];
 $movie = new Movie;
 $movie_details = $movie->getMovieDetails();
 ?>

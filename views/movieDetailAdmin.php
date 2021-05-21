@@ -58,7 +58,7 @@ $movie_id = $_GET['movie_id'];
             ?>
 
             <tr class="d-flex">
-                <td class="col-md-12">Screen Number<?= $screen_schedules['screen_num'];?></td>
+                <td class="col-md-12">Screen Number <?= $screen_schedules['screen_num'];?></td>
             </tr>
 
             <tr class="d-flex">
@@ -70,20 +70,32 @@ $movie_id = $_GET['movie_id'];
                         $date = $times['date'];
                         $st_time = $times['st_time'];
                         $screen_time = strtotime("$date $st_time");
-                        $expiration_time = strtotime("-1 hour", $screen_time);
+                        $expiration_time = strtotime("-2 hour", $screen_time);
                             if($expiration_time <= time()){
                 ?>
 
-                <td class="col-md-2">   
-                    <p class="d-inline text-white bg-secondary p-3"><?= $times['st_time'];?></p>
+                <td>
+                    <?= $times['st_time'];?>
+                </td>
+                <td>
+                    <a href="updateSchedule.php?schedule_id=<?= $times['schedule_id'];?>" class="btn btn-success">UPDATE</a>
+                </td>
+                <td>
+                    <a href="" class="btn btn-warning">DELETE</a>
                 </td>
                     
                 <?php
                             }else{
                 ?>
 
-                <td class="col-md-2">
-                    <a href="seatReservation.php?schedule_id=<?= $times['schedule_id'];?>&movie_id=<?= $movie_id;?>" class="d-inline"><?= $times['st_time'];?></a>
+                <td>
+                    <a href="seatReservation.php?schedule_id=<?= $times['schedule_id'];?>&movie_id=<?= $movie_id;?>"><?= $times['st_time'];?></a>
+                </td>
+                <td>
+                    <a href="updateSchedule.php?schedule_id=<?= $times['schedule_id'];?>" class="btn btn-success">UPDATE</a>
+                </td>
+                <td>
+                    <a href="" class="btn btn-warning">DELETE</a>
                 </td>
                 
                 <?php

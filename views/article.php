@@ -1,7 +1,8 @@
 <?php
-include "../classes/information.php";
-$information = new Information;
-$posts = $information->getPost();
+include "../classes/article.php";
+
+$article = new Article;
+$article_details = $article->showArticle();
 ?>
 
 
@@ -54,14 +55,14 @@ $posts = $information->getPost();
                 <div class="date h5"><?php echo date("Y/m/d");?></div>
                 <a href="logout.php">LOGOUT</a>
             </div>
-            <h2>Offers and Informaiton</h2>
+            <h2>News and Articles</h2>
 
             <div class="information-frame">
-                <a href="addInformation.php" id="add_info_btn">Add Post</a>
+                <a href="addArticle.php" id="add_info_btn">Add an  Article</a>
                 <table class="table">
                     <thead class="thead-light">
                         <tr class="d-flex">
-                            <th class="col-md-2">INFO_ID</th>
+                            <th class="col-md-2">Article_ID</th>
                             <th class="col-md-4">TITLE</th>
                             <th class="col-md-2">DATE</th>
                             <th class="col-md-2"></th>
@@ -71,25 +72,25 @@ $posts = $information->getPost();
                     
                     <tbody>
                     <?php 
-                        if($posts == "No Info"){
+                        if($article_details == "No Record"){
                     ?>
                         <tr>
                             <td>
                                 <h3>
-                                    <i class="fas fa-exclamation-triangle"></i><br>No Posts
+                                    <i class="fas fa-exclamation-triangle"></i><br>No Articles
                                 </h3>
                             </td>
                         </tr>
                     <?php
                         }else{
-                            foreach($posts as $post){
+                            foreach($article_details as $article_detail){
                     ?>
                         <tr class="d-flex">
-                            <td class="col-md-2"><?php echo $post['information_id'];?></td>
-                            <td class="col-md-4"><?php echo $post['title'];?></td>
-                            <td class="col-md-2"><?php echo $post['date'];?></td>
-                            <td class="details col-md-2"><a href="infoDetail.php?info_id=<?php echo $post['information_id'];?>">Details</a></td>
-                            <td class="delete col-md-2"><a href="../actions/deleteInformation.php?info_id=<?= $post['information_id'];?>">DELETE</a></td>
+                            <td class="col-md-2"><?php echo $article_detail['article_id'];?></td>
+                            <td class="col-md-4"><?php echo $article_detail['title'];?></td>
+                            <td class="col-md-2"><?php echo $article_detail['date'];?></td>
+                            <td class="details col-md-2"><a href="articleDetail.php?article_id=<?php echo $article_detail['article_id'];?>">Details</a></td>
+                            <td class="delete col-md-2"><a href="../actions/deleteArticle.php?article_id=<?php echo $article_detail['article_id'];?>">DELETE</a></td>
                         </tr>
 
                     <?php

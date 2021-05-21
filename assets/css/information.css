@@ -142,3 +142,22 @@ section h2{
     color: white;
     text-decoration: none;
 }
+
+.delete a{
+    border: 2px solid rgb(10, 128, 104);
+    color: rgb(10, 128, 104);
+    padding: 8px 18px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+
+.delete a:hover{
+    border: 2px solid rgb(61, 61, 61);
+    color: rgb(61, 61, 61);
+    text-decoration: none;
+}
+
+h3{
+    color: rgb(117, 117, 117);
+}

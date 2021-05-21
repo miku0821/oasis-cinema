@@ -36,7 +36,6 @@ session_start();
         </form>
 
         <?php
-        echo strtotime("+4 day");
         if(isset($_SESSION['msg'])){
         ?>
             <div class="alert alert-danger text-center" role="alert">

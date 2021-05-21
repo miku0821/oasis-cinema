@@ -12,3 +12,9 @@
     border: 1px solid green;
     height: 400px;
 }
+
+table a{
+    background-color: cadetblue;
+    padding: 15px 30px;
+    color: white;
+}

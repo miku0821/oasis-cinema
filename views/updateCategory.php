@@ -1,7 +1,9 @@
 <?php
 include "../classes/category.php";
+$category_id = $_GET['category_id'];
 $category = new Category;
 $category_details = $category->showCategory();
+$category_row = $category->getCategoryRow($category_id);
 session_start();
 ?>
 
@@ -58,15 +60,19 @@ session_start();
 
             <div class="category-frame"> 
             <!-- form -->
-                <form action="../actions/category.php" method="post">
+                <form action="../actions/updateCategory.php" method="post">
                     <div class="form-row">
                         <div class="form-group col-md-5 mx-auto">
-                            <input type="text" name="category_name" class="form-control text-center" required>
+                            <?php
+                                foreach($category_row as $category)
+                            ?>
+                            <input type="text" name="new_category_name" value="<?php echo $category['category_name'];?>" class="form-control text-center" required>
+                            <input type="hidden" name="category_id" value="<?php echo $category_id;?>">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group mx-auto">
-                            <button type="submit" name="add" class="button">ADD</button>
+                            <button type="submit" name="add" class="button">UPDATE</button>
                         </div>
                     </div>
                 </form>

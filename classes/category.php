@@ -1,5 +1,5 @@
 <?php
-require "database.php";
+require_once "database.php";
 
 class Category extends Database{
     public function addCategory($category_name){
@@ -15,7 +15,7 @@ class Category extends Database{
         $sql = "SELECT * FROM categories WHERE category_name = '$category_name'";
         $result = $this->conn->query($sql);
 
-        if($result->num_rows == 1){
+        if($result->num_rows > 0){
             return true;
         }else{
             return false;
@@ -33,6 +33,40 @@ class Category extends Database{
             return $rows;
         }else{
             return "No Record";
+        }
+    }
+
+    public function checkMovieCategory($movie_id, $category_id){
+        $sql = "SELECT * FROM movie_category WHERE movie_id = '$movie_id' AND category_id = '$category_id'";
+        $result = $this->conn->query($sql);
+
+        if($result->num_rows == 1){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function getCategoryRow($category_id){
+        $sql = "SELECT category_name FROM categories WHERE category_id = '$category_id'";
+        $result = $this->conn->query($sql);
+
+        if($result->num_rows == 1){
+            return $result;
+        }else{
+            die("Error getting category row: ".$this->conn->error);
+        }
+    }
+
+    public function updateCategory($category_id, $new_category_name){
+        $sql = "UPDATE categories
+                SET category_name = '$new_category_name'
+                WHERE category_id = '$category_id'";
+        if($this->conn->query($sql)){
+            header("location: ../views/category.php");
+            exit;
+        }else{
+            die("Error updating category: ".$this->conn->error);
         }
     }
 

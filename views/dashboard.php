@@ -13,6 +13,7 @@ $movie->deleteMovieAutomatic();
     <title>Dashboard</title>
     <link rel="stylesheet" href="../assets/css/dashboard.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/1eaebda83d.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <main>
@@ -55,59 +56,67 @@ $movie->deleteMovieAutomatic();
                 <h2>Dashboard</h2>
                 <div class="now-screening">
                     <h3>Now Screening</h3>
-                    <?php 
-                // $trailer = $movie_details[0]['trailer'];
-                ?>
-                <table class="table">
-                    <thead class="thead-light">
-                        <tr>
-                            <th>Poster</th>
-                            <th>Title</th>
-                            <th>Release Year</th>
-                            <th>Runtime</th>
-                            <th>Rating</th>
-                            <th>Category</th>
-                            <th>Screening starts on:</th>
-                            <th>Screening ends on:</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                            foreach($movie_details as $movie_detail){
-                                $movie_id = $movie_detail['movie_id'];
-                                $category_list = $movie->getCategories($movie_id);
-                                $date = $movie_detail['st_date'];
-                                $time = $movie_detail['st_time'];
-                                date_default_timezone_set('Asia/Tokyo');
-                                $timestamp = strtotime("$date $time");
-                                if($timestamp <= time()){
-                                    
-                                    ?>
-                        <tr>
-                            <td><img src="../images/<?php echo $movie_detail['photo'];?>" width="120px"></td>
-                            <td><?php echo $movie_detail['title'];?></td>
-                            <td><?php echo $movie_detail['release_year']?></td>
-                            <td><?php echo $movie_detail['runtime'];?></td>
-                            <td><?php echo $movie_detail['rating'];?></td>
-                            <td><?php while ($category_details = $category_list->fetch_assoc()){
-                                echo $category_details['category_name']."<br>";
-                            }?></td>
-                            <td><?php echo $movie_detail['st_date'];?></td>
-                            <td><?php echo $movie_detail['end_date'];?></td>
-                            <td class="edit"><a href="editMovie.php?id=<?php echo $movie_detail['movie_id'];?>">EDIT</a></td>
-                            <td class="delete"><a href="../actions/deleteMovie.php?movie_id=<?php echo $movie_detail['movie_id'];?>">DELETE</a></td>
-                        </tr>
-                        
-                        <?php
-                                }
-                            }
+          
+                    <table class="table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Poster</th>
+                                <th>Title</th>
+                                <th>Release Year</th>
+                                <th>Runtime</th>
+                                <th>Rating</th>
+                                <th>Category</th>
+                                <th>Screening starts on:</th>
+                                <th>Screening ends on:</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                                if($movie_details == FALSE){
                             ?>
-                    </tbody>
-                </table>
-                
-                <!-- <iframe src='<?php echo $trailer;?>' frameborder='0'></iframe> -->
+                                <tr>
+                                    <td colspan="8">
+                                        <h3 class="text-center">
+                                            <i class="fas fa-exclamation-triangle"></i><br>No Movies Added
+                                        </h3>
+                                    </td>
+                                </tr>
+                            <?php
+                                }else{ 
+                                    foreach($movie_details as $movie_detail){
+                                    $movie_id = $movie_detail['movie_id'];
+                                    $category_list = $movie->getCategories($movie_id);
+                                    $date = $movie_detail['st_date'];
+                                    $time = $movie_detail['st_time'];
+                                    date_default_timezone_set('Asia/Tokyo');
+                                    $timestamp = strtotime("$date $time");
+                                        if($timestamp <= time()){
+                                        
+                                        ?>
+                            <tr>
+                                <td><img src="../images/<?php echo $movie_detail['photo'];?>" width="120px"></td>
+                                <td><?php echo $movie_detail['title'];?></td>
+                                <td><?php echo $movie_detail['release_year']?></td>
+                                <td><?php echo $movie_detail['runtime'];?></td>
+                                <td><?php echo $movie_detail['rating'];?></td>
+                                <td><?php while ($category_details = $category_list->fetch_assoc()){
+                                    echo $category_details['category_name']."<br>";
+                                }?></td>
+                                <td><?php echo $movie_detail['st_date'];?></td>
+                                <td><?php echo $movie_detail['end_date'];?></td>
+                                <td class="edit"><a href="editMovie.php?id=<?php echo $movie_detail['movie_id'];?>">EDIT</a></td>
+                                <td class="delete"><a href="../actions/deleteMovie.php?movie_id=<?php echo $movie_detail['movie_id'];?>">DELETE</a></td>
+                            </tr>
+                            
+                            <?php
+                                        }
+                                    }
+                                }
+                                ?>
+                        </tbody>
+                    </table>
                 </div>
             </section>
         </div>

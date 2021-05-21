@@ -1,5 +1,5 @@
 <?php
-require "database.php";
+require_once "database.php";
 class User extends Database{
 
     public function checkUsername($username){

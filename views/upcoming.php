@@ -14,6 +14,7 @@ $movie_details = $movie->getMovieDetails();
     <title>Dashboard</title>
     <link rel="stylesheet" href="../assets/css/upcoming.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/1eaebda83d.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <main>
@@ -74,15 +75,30 @@ $movie_details = $movie->getMovieDetails();
                         </thead>
                         <tbody>
                             <?php
-                            foreach($movie_details as $movie_detail){
-                                $movie_id = $movie_detail['movie_id'];
-                                $category_list = $movie->getCategories($movie_id);
-                                $date = $movie_detail['st_date'];
-                                $time = $movie_detail['st_time'];
-                                date_default_timezone_set('Asia/Tokyo');
-                                $timestamp = strtotime("$date $time")."<br>";
-                                if($timestamp > time()){
-                                    ?>
+                                if($movie_details == FALSE){
+                            ?>
+
+                            <tr>
+                                <td  colspan="8">
+                                    <h3 class="text-center">
+                                    <i class="fas fa-exclamation-triangle"></i><br>No Movies Added
+                                    </h3>
+                                </td>
+                            </tr>
+
+                            <?php
+                                }else{
+
+                               
+                                    foreach($movie_details as $movie_detail){
+                                    $movie_id = $movie_detail['movie_id'];
+                                    $category_list = $movie->getCategories($movie_id);
+                                    $date = $movie_detail['st_date'];
+                                    $time = $movie_detail['st_time'];
+                                    date_default_timezone_set('Asia/Tokyo');
+                                    $timestamp = strtotime("$date $time")."<br>";
+                                        if($timestamp > time()){
+                            ?>
 
                             <tr>
                                 <td><img src="../images/<?php echo $movie_detail['photo'];?>" width="120px"></td>
@@ -96,12 +112,13 @@ $movie_details = $movie->getMovieDetails();
                                 <td><?php echo $movie_detail['st_date'];?></td>
                                 <td><?php echo $movie_detail['end_date'];?></td>
                                 <td class="edit"><a href="editMovie.php?id=<?php echo $movie_detail['movie_id'];?>">Edit</a></td>
-                                <td class="delete"><a href="../actions/delete.php?id=<?php echo $movie_detail['movie_id'];?>">Delete</a></td>
+                                <td class="delete"><a href="../actions/deleteUpcomingMovie.php?id=<?php echo $movie_detail['movie_id'];?>">Delete</a></td>
                             </tr>
                         
                         <?php
+                                        }
+                                    } 
                                 }
-                            }
                             ?>
                         </tbody>
                     </table>
