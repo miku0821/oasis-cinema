@@ -20,8 +20,8 @@ session_start();
     <div class="f-container">
         <!-- menubar -->
         <div class="left-menu-bar">  
-            <div class="company-name">
-                <h4>Oas<span>i</span>s Cinema</h4>
+            <div class="logo">
+                <h4> Oas<span>i</span>s C<span>i</span>nema</h4>
             </div>
                 <nav class="navbar">
                     <ul class="navbar-nav">
@@ -44,7 +44,10 @@ session_start();
                             <a href="information.php">Offers & Information</a>                            
                         </li>
                         <li class="nav-item">
-                            <a href="">News & Articles</a>
+                            <a href="article.php">News & Articles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="nowPlayingMovieAdmin.php">Now Playing Movie</a>
                         </li>
                     </ul>
                 </nav>
@@ -52,7 +55,7 @@ session_start();
         <section>
             <div class="menu-right">
                 <div class="date h5"><?php echo date("Y/m/d");?></div>
-                <a href="logout.php">LOGOUT</a>
+                <a href="../actions/logout.php">LOGOUT</a>
             </div>
             <h2>Add Category</h2>
 
@@ -115,7 +118,9 @@ session_start();
                                 <?php echo $category_detail['category_name'];?>
                             </td>
                             <td class="update col-md-2"><a href="updateCategory.php?category_id=<?php echo $category_detail['category_id'];?>">UPDATE</a></td>
-                            <td class="delete col-md-2"><a href="../actions/deleteCategory.php?category_id=<?php echo $category_detail['category_id'];?>">DELETE</a></td>
+                            <td class="delete col-md-2">
+                                <a onClick="return confirm('Are you sure you want to delete?')" href="../actions/deleteCategory.php?category_id=<?php echo $category_detail['category_id'];?>">DELETE</a>
+                            </td>
                         </tr>
 
                         <?php

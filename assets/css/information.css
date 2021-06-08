@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Playfair+Display+SC&display=swap');
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -15,20 +16,27 @@ main{
     /* border: 1px solid red; */
     width: 13%;
     float: left;
-    background-color:  rgb(1,72,113);
+    background-color: #060818;
     height: 100vh;
     box-shadow: 1px 1px 15px black;
 }
 
 .left-menu-bar h4{
-    font-family: 'Bungee Inline', cursive;
+    font-family: 'Odibee Sans', cursive;
     /* background-color: honeydew; */
     color: white;
-    padding: 20px;
+    padding: 26px;
+    font-size: 35px;
 }
 
-.left-menu-bar span{
-    color: rgb(93, 196, 93);
+.logo span{
+    background: linear-gradient(
+        to right, 
+        hsl(98 100% 62%), 
+        hsl(204 100% 59%)
+      );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 
@@ -43,7 +51,7 @@ main{
 }
 
 .nav-item:hover{
-    background-color:  rgb(0, 60, 92);
+    background-color:  #282537;
     border-radius: 10px;
 }
 
@@ -66,18 +74,21 @@ main{
 }
 
 .menu-right a{
-    color: white;
-    background-color: rgb(1,72,113);
     padding: 10px;
-    border-radius: 5px;
+    background-image: linear-gradient(to right, #25aae1, #4481eb);
+    border: none;
+    color: white;
+    border-radius: 3px !important;
+    margin: 40px 0 !important;
 }
 
 .menu-right a:hover{
-    color: rgb(1,72,113);
     text-decoration: none;
-    border: 2px solid rgb(1,72,113);
-    background-color: white;
-    padding: 8px;
+    padding: 10px;
+    background-image: none;
+    background-color: #25aae1;
+    color: white;
+    text-decoration: none;
 }
 
 
@@ -105,17 +116,18 @@ section h2{
 }
 
 #add_info_btn{
-    border: 2px solid rgb(10, 128, 104);
-    border-radius: 5px;
-    color: rgb(10, 128, 104);
     text-decoration: none;
-    padding: 10px 18px;
     margin-left: 15%;
+    border: 2px solid #25aae1;
+    color: #25aae1;
+    padding: 10px 18px;
+    border-radius: 5px;
 }
 
 #add_info_btn:hover{
-    background-color: rgb(10, 128, 104);
+    background-color: #4481eb;
     color: white;
+    border: 2px solid #4481eb;
 }
 
 
@@ -131,30 +143,30 @@ section h2{
 
 
 .details a{
-    background-color: rgb(10, 128, 104);
+    background-color: #25aae1;
     color: white;
     padding: 8px 18px;
     border-radius: 5px;
 }
 
 .details a:hover{
-    background-color: rgb(61, 61, 61);
+    background-color: #4481eb;
     color: white;
     text-decoration: none;
 }
 
 .delete a{
-    border: 2px solid rgb(10, 128, 104);
-    color: rgb(10, 128, 104);
+    /* font-size: 14px; */
+    border: 2px solid #25aae1;
+    color: #25aae1;
     padding: 8px 18px;
     border-radius: 5px;
-    font-size: 14px;
 }
 
 
 .delete a:hover{
-    border: 2px solid rgb(61, 61, 61);
-    color: rgb(61, 61, 61);
+    border: 2px solid #4481eb;
+    color: #4481eb;
     text-decoration: none;
 }
 

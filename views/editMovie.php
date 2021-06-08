@@ -22,8 +22,8 @@ $movie_details = $movie->getMovieDetailRow($id);
     <div class="f-container">
         <!-- menubar -->
         <div class="left-menu-bar">  
-            <div class="company-name">
-                <h4>Oas<span>i</span>s Cinema</h4>
+            <div class="logo">
+                <h4> Oas<span>i</span>s C<span>i</span>nema</h4>
             </div>
                 <nav class="navbar">
                     <ul class="navbar-nav">
@@ -46,7 +46,7 @@ $movie_details = $movie->getMovieDetailRow($id);
                             <a href="information.php">Offers &Information</a>                            
                         </li>
                         <li class="nav-item">
-                            <a href="">News & Articles</a>
+                            <a href="news.php">News & Articles</a>
                         </li>
                     </ul>
                 </nav>
@@ -62,7 +62,7 @@ $movie_details = $movie->getMovieDetailRow($id);
             <form action="../actions/editMovie.php" method="post" enctype="multipart/form-data">
                 <div class="form-row">
                     <div class="form-group col-md-5">
-                        <label for="title">TITLE</label>
+                        <label for="title">Title</label>
                         <input type="text" name="new_title" id="title" value="<?php echo $movie_details['title'];?>" class="form-control">   
                     </div>
                 </div>
@@ -86,26 +86,42 @@ $movie_details = $movie->getMovieDetailRow($id);
                         </select>
                     </div>
                 </div>
-                <div class="movie-poster">
-                    <img src="../images/<?php echo $movie_details['photo'];?>" alt="movie_poster" width="15%">
-                </div>
+                
                 <div class="form-row mt-2">
-                    <div class="form-group col-md-3">
-                    <div class="custom-file">
+                    <div class="form-group col-md-4">
+                        <div class="movie-poster mb-2">
+                            <img src="../assets/images/<?php echo $movie_details['photo'];?>" alt="movie_poster" width="45%">
+                        </div>
+                        <div class="custom-file">
                             <label for="image" class="custom-file-label">Upload Image</label>
                             <input type="file" name="new_photo" id="image" class="custom-file-input">
+                        </div> 
+                    </div>
+                    <div class="form-group col-md-4 f-image">
+                        <div class="feature-image mb-2">
+                            <img src="../assets/images/<?php echo $movie_details['feature_image'];?>" alt="feature_image" width="70%">
+                        </div>
+                        <div class="custom-file">
+                            <label for="f-image" class="custom-file-label">Upload Feature Image</label>
+                            <input type="file" name="new_feature_image" id="f-image" class="custom-file-input">
                         </div>
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-5">
                         <label for="trailer">Upload Trailer</label>
                         <input type="url" name="new_trailer" id="trailer" value="<?php echo $movie_details['trailer'];?>" class="form-control">
                     </div>
                 </div>
-                    <div class="form-row">
-                        <div class="form-group category">
-                            <label for="category">Choose Categories</label><br>
+                
+                <div class="form-row mt-4">
+                    <div class="form-group col-md-12">
+                        <textarea name="new_synopsis" cols="30" rows="10" class="form-control" placeholder="SYNOPSIS" required><?= $movie_details['synopsis']?></textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group category">
+                        <label for="category">Choose Categories</label><br>
                             <?php 
                             foreach($category_details as $category_detail){
                                 if($category->checkMovieCategory($movie_details['movie_id'], $category_detail['category_id'])){
@@ -134,17 +150,15 @@ $movie_details = $movie->getMovieDetailRow($id);
                             }
                         ?>
 
-                        </div>
                     </div>
-                <div class="form-row">
-                    <div class="form-group screen-date">
+                </div>
+                <div class="form-row mt-3">
+                    <div class="form-group col-md-4">
                         <label for="date">Screening starts on:</label>
                         <input type="date" name="new_st_date" id="date" value="<?php echo $movie_details['st_date'];?>" class="form-control">
                         <input type="hidden" name="new_st_time" value="00:00">
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
+                    <div class="form-group col-md-4">
                         <label for="date">Screening End on:</label>
                         <input type="date" name="new_end_date" id="date" value="<?php echo $movie_details['end_date'];?>" class="form-control">
                     </div>

@@ -19,8 +19,8 @@ $movie->deleteMovieAutomatic();
     <main>
         <div class="f-container">
             <div class="left-menu-bar">  
-                <div class="company-name">
-                    <h4>Oas<span>i</span>s Cinema</h4>
+                <div class="logo">
+                    <h4> Oas<span>i</span>s C<span>i</span>nema</h4>
                 </div>
                     <nav class="navbar">
                         <ul class="navbar-nav">
@@ -40,10 +40,13 @@ $movie->deleteMovieAutomatic();
                                 <a href="category.php">Category</a>
                             </li>
                             <li class="nav-item">
-                                <a href="information.php">Offers &Information</a>
+                                <a href="information.php">Offers & Information</a>
                             </li>
                             <li class="nav-item">
-                                <a href="">News & Articles</a>
+                                <a href="article.php">News & Articles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="nowPlayingMovieAdmin.php">Now Playing Movie</a>
                             </li>
                         </ul>
                     </nav>
@@ -51,8 +54,10 @@ $movie->deleteMovieAutomatic();
             <section>
                 <div class="menu-right">
                     <div class="date h5"><?php echo date("Y/m/d");?></div>
-                    <a href="logout.php">LOGOUT</a>
+                    <a href="../actions/logout.php">LOGOUT</a>
                 </div>
+
+                <!-- now-screening-info -->
                 <h2>Dashboard</h2>
                 <div class="now-screening">
                     <h3>Now Screening</h3>
@@ -86,35 +91,56 @@ $movie->deleteMovieAutomatic();
                             <?php
                                 }else{ 
                                     foreach($movie_details as $movie_detail){
+
                                     $movie_id = $movie_detail['movie_id'];
                                     $category_list = $movie->getCategories($movie_id);
                                     $date = $movie_detail['st_date'];
-                                    $time = $movie_detail['st_time'];
+                                    $time = $movie_detail['time'];
                                     date_default_timezone_set('Asia/Tokyo');
                                     $timestamp = strtotime("$date $time");
-                                        if($timestamp <= time()){
-                                        
-                                        ?>
+
+                                        if($timestamp <= time()){     
+                            ?>
                             <tr>
-                                <td><img src="../images/<?php echo $movie_detail['photo'];?>" width="120px"></td>
-                                <td><?php echo $movie_detail['title'];?></td>
-                                <td><?php echo $movie_detail['release_year']?></td>
-                                <td><?php echo $movie_detail['runtime'];?></td>
-                                <td><?php echo $movie_detail['rating'];?></td>
-                                <td><?php while ($category_details = $category_list->fetch_assoc()){
-                                    echo $category_details['category_name']."<br>";
-                                }?></td>
-                                <td><?php echo $movie_detail['st_date'];?></td>
-                                <td><?php echo $movie_detail['end_date'];?></td>
-                                <td class="edit"><a href="editMovie.php?id=<?php echo $movie_detail['movie_id'];?>">EDIT</a></td>
-                                <td class="delete"><a href="../actions/deleteMovie.php?movie_id=<?php echo $movie_detail['movie_id'];?>">DELETE</a></td>
+                                <td>
+                                    <img src="../assets/images/<?= $movie_detail['photo'];?>" width="120px">
+                                </td>
+                                <td>
+                                    <?= $movie_detail['title'];?>
+                                </td>
+                                <td>
+                                    <?= $movie_detail['release_year']?>
+                                </td>
+                                <td>
+                                    <?= $movie_detail['runtime'];?>
+                                </td>
+                                <td>
+                                    <?= $movie_detail['rating'];?>
+                                </td>
+                                <td>
+                                    <?php while ($category_detail = $category_list->fetch_assoc()){
+                                    echo $category_detail['category_name']."<br>";
+                                }?>
+                                </td>
+                                <td>
+                                    <?= $movie_detail['st_date'];?>
+                                </td>
+                                <td>
+                                    <?= $movie_detail['end_date'];?>
+                                </td>
+                                <td class="edit">
+                                    <a href="editMovie.php?id=<?= $movie_detail['movie_id'];?>">EDIT</a>
+                                </td>
+                                <td class="delete">
+                                    <a onClick="return confirm('Are you sure you want to delete?')" href='../actions/deleteMovie.php?movie_id=<?= $movie_detail['movie_id'];?>'>Delete</a>
+                                </td>
                             </tr>
                             
                             <?php
                                         }
                                     }
                                 }
-                                ?>
+                            ?>
                         </tbody>
                     </table>
                 </div>

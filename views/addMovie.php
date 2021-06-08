@@ -39,10 +39,13 @@ $category_details = $category->showCategory();
                             <a href="category.php">Category</a>
                         </li>
                         <li class="nav-item">
-                            <a href="information.php">Offers &Information</a>                            
+                            <a href="information.php">Offers & Information</a>                            
                         </li>
                         <li class="nav-item">
-                            <a href="">News & Articles</a>
+                            <a href="article.php">News & Articles</a>
+                        </li>
+                        <li class="nav-item">
+                                <a href="nowPlayingMovieAdmin.php">Now Playing Movie</a>
                         </li>
                     </ul>
                 </nav>
@@ -50,7 +53,7 @@ $category_details = $category->showCategory();
         <section>
             <div class="menu-right">
                 <div class="date h5"><?php echo date("Y/m/d");?></div>
-                <a href="logout.php">LOGOUT</a>
+                <a href="../actions/logout.php">LOGOUT</a>
             </div>
             <h2>Add Movies</h2>
 
@@ -58,7 +61,7 @@ $category_details = $category->showCategory();
             <form action="../actions/addMovie.php" method="post" enctype="multipart/form-data">
                 <div class="form-row">
                     <div class="form-group col-md-5">
-                        <label for="title">TITLE</label>
+                        <label for="title">Title</label>
                         <input type="text" name="title" id="title" class="form-control">   
                     </div>
                 </div>
@@ -82,43 +85,57 @@ $category_details = $category->showCategory();
                         </select>
                     </div>
                 </div>
-                <div class="form-row">
+                <div class="form-row mt-5">
                     <div class="form-group col-md-3">
-                        <label for="photo">Upload Photo</label>
-                        <input type="file" name="photo" id="photo" class="form-control">
+                        <div class="custom-file">
+                                <label for="image" class="custom-file-label">Upload Poster</label>
+                                <input type="file" name="photo" id="image" class="custom-file-input" required>
+                        </div>
                     </div>
+                    <div class="form-group col-md-3">
+                        <div class="custom-file">
+                            <label for="f-image" class="custom-file-label">Upload Feature Image</label>
+                            <input type="file" name="feature_image" id="f-image" class="custom-file-input" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row mt-2 mb-5">
                     <div class="form-group col-md-3">
                         <label for="trailer">Upload Trailer</label>
                         <input type="url" name="trailer" id="trailer" class="form-control">
                     </div>
                 </div>
-                    <div class="form-row">
-                        <div class="form-group category">
-                            <label for="category">Choose Categories</label><br>
-                            <?php 
-                            foreach($category_details as $category_detail){
-                                ?>
-                            <div class="form-check-inline" id="category">
-                                <label class="form-check-label" for="<?php $category_detail['category_id'];?>">
-                                    <input type="checkbox" name="categories[]" id="<?php echo $category_detail['category_id'];?>" value="<?php echo $category_detail['category_id'];?>" class="form-check-input"><?php echo $category_detail['category_name']?>
-                                </label>
-                            </div>
+                <div class="form-row mt-4">
+                    <div class="form-group col-md-12">
+                        <textarea name="synopsis" cols="30" rows="10" class="form-control" placeholder="SYNOPSIS" required></textarea>
+                    </div>
+                </div>
+                <div class="form-row my-4">
+                    <div class="form-group category">
+                        <label for="category">Choose Categories</label><br>
+
+                        <?php 
+                        foreach($category_details as $category_detail){
+                        ?>
+
+                        <div class="form-check-inline" id="category">                                                 <label class="form-check-label" for="<?php $category_detail['category_id'];?>">
+                                <input type="checkbox" name="categories[]" id="<?= $category_detail['category_id'];?>" value="<?= $category_detail['category_id'];?>" class="form-check-input"><?= $category_detail['category_name']?>
+                            </label>
+                        </div>
                         <?php
                             }
                             ?>
 
-                        </div>
-                    </div>
-                <div class="form-row">
-                    <div class="form-group screen-date">
+                     </div>
+                </div>
+                <div class="form-row my-3">
+                    <div class="form-group col-md-4">
                         <label for="date">Screening starts on:</label>
                         <input type="date" name="st_date" id="date" class="form-control">
                         <input type="hidden" name="st_time" value="00:00">
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="date">Screening End on:</label>
+                    <div class="form-group col-md-4">
+                        <label for="date">Screening ends on:</label>
                         <input type="date" name="end_date" id="date" class="form-control">
                     </div>
                 </div>

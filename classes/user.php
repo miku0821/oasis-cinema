@@ -42,18 +42,51 @@ class User extends Database{
             if(password_verify($password, $user_details['password'])){
                $_SESSION['user_id'] = $user_details['user_id'];
                $_SESSION['username'] = $user_details['username'];
+               $_SESSION['account_id'] = $user_details['account_id'];
 
                if($user_details['status'] == "A"){
                    header("location: ../views/dashboard.php");
                    exit;
                }elseif($user_details['status'] == "U"){
-                    header("location: ../views");
+                    header("location: ../views/homepage.php");
                }
             }else{
                 return "Invalid Password";
             }
         }else{
             return "Invalid Username";
+        }
+    }
+
+    public function getUserDetail($user_id){
+        $sql = "SELECT * FROM users INNER JOIN accounts ON users.account_id = accounts.account_id WHERE user_id = '$user_id'";
+        $result = $this->conn->query($sql);
+
+        if($result->num_rows == "1"){
+            return $result->fetch_assoc();
+        }else{
+            die("Error getting data: ".$this->conn->error);
+        }
+    }
+
+    public function updateUser($user_id, $new_first_name, $new_last_name, $new_gender, $new_b_day, $new_email, $new_postcode, $new_address, $new_username, $new_password){
+        
+        $sql = "UPDATE users INNER JOIN accounts ON users.account_id = accounts.account_id
+                SET users.first_name = '$new_first_name',
+                    users.last_name = '$new_last_name',
+                    users.email = '$new_email',
+                    users.gender = '$new_gender',
+                    users.birthday = '$new_b_day',
+                    users.postcode = '$new_postcode',
+                    users.address = '$new_address',
+                    accounts.username = '$new_username',
+                    accounts.password = '$new_password'
+                WHERE user_id = '$user_id'";
+        if($this->conn->query($sql)){
+            header("location: ../views/homepage.php");
+            exit;
+        }else{
+            die("Error updating User: ".$this->conn->error);
         }
     }
 }

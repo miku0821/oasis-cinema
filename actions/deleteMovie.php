@@ -1,6 +1,6 @@
 <?php
 include "../classes/movie.php";
-$id = $_GET['movie_id'];
+$movie_id = $_GET['movie_id'];
 $movie = new Movie;
-$movie->deleteMovie($id);
+$movie->deleteMovie($movie_id);
 ?>

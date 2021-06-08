@@ -20,8 +20,8 @@ $movie_details = $movie->getMovieDetails();
     <main>
         <div class="f-container">
             <div class="left-menu-bar">  
-                <div class="company-name">
-                    <h4>Oas<span>i</span>s Cinema</h4>
+                <div class="logo">
+                    <h4> Oas<span>i</span>s C<span>i</span>nema</h4>
                 </div>
                     <nav class="navbar">
                         <ul class="navbar-nav">
@@ -41,10 +41,13 @@ $movie_details = $movie->getMovieDetails();
                                 <a href="category.php">Category</a>
                             </li>
                             <li class="nav-item">
-                                <a href="information.php">Offers Information</a>
+                                <a href="information.php">Offers & Information</a>
                             </li>
                             <li class="nav-item">
-                                <a href="">News & Articles</a>
+                                <a href="article.php">News & Articles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="nowPlayingMovieAdmin.php">Now Playing Movie</a>
                             </li>
                         </ul>
                     </nav>
@@ -52,7 +55,7 @@ $movie_details = $movie->getMovieDetails();
             <section>
                 <div class="menu-right">
                     <div class="date h5"><?php echo date("Y/m/d");?></div>
-                    <a href="logout.php">LOGOUT</a>
+                    <a href="../actions/logout.php">LOGOUT</a>
                 </div>
                 <h2 class="mt-5">Schedule</h2>
                 <div class="upcoming">
@@ -94,14 +97,14 @@ $movie_details = $movie->getMovieDetails();
                                     $movie_id = $movie_detail['movie_id'];
                                     $category_list = $movie->getCategories($movie_id);
                                     $date = $movie_detail['st_date'];
-                                    $time = $movie_detail['st_time'];
+                                    $time = $movie_detail['time'];
                                     date_default_timezone_set('Asia/Tokyo');
                                     $timestamp = strtotime("$date $time")."<br>";
                                         if($timestamp > time()){
                             ?>
 
                             <tr>
-                                <td><img src="../images/<?php echo $movie_detail['photo'];?>" width="120px"></td>
+                                <td><img src="../assets/images/<?php echo $movie_detail['photo'];?>" width="120px"></td>
                                 <td><?php echo $movie_detail['title'];?></td>
                                 <td><?php echo $movie_detail['release_year']?></td>
                                 <td><?php echo $movie_detail['runtime'];?></td>
@@ -112,7 +115,7 @@ $movie_details = $movie->getMovieDetails();
                                 <td><?php echo $movie_detail['st_date'];?></td>
                                 <td><?php echo $movie_detail['end_date'];?></td>
                                 <td class="edit"><a href="editMovie.php?id=<?php echo $movie_detail['movie_id'];?>">Edit</a></td>
-                                <td class="delete"><a href="../actions/deleteUpcomingMovie.php?id=<?php echo $movie_detail['movie_id'];?>">Delete</a></td>
+                                <td class="delete"><a onClick="return confirm('Are you sure you want to delete?')" href='../actions/deleteUpcomingMovie.php?movie_id=<?php echo $movie_detail['movie_id'];?>'>Delete</a></td>
                             </tr>
                         
                         <?php

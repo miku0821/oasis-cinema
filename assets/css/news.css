@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Playfair+Display+SC&display=swap');
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #282537 !important;
+    background-image: -webkit-radial-gradient(top, circle cover, #272735 0%, #060818 80%);
+    height: 100vh ;
+}
+
+.news{
+    /* border: 1px solid green; */
+    margin: 2% auto;
+}
+
+h1{
+    text-align: center;
+    color: whitesmoke;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(to right, #25aae1, #4481eb);
+    border-image-slice: 1;
+    padding-bottom: 1.5%;
+}
+
+.news-items{
+    /* border: 1px solid red; */
+    padding: 0;
+    margin: auto;
+}
+
+.news .row{
+    /* border: 1px solid olive; */
+    width: 100%;
+    margin: 4% auto;
+}
+
+.news .card{
+    width: 100%;
+    margin: 0 !important;
+    margin-top: 25px !important;
+    border: none;
+    /* border: 1px solid green; */    
+    background-color: rgb(243, 247, 252);
+}
+
+.news .card-body{
+    height: 60px;
+}
+
+.card h3{
+    font-family: 'Playfair Display SC', serif;
+}
+
+.news-items img{
+    height: 300px !important;
+    object-fit: cover;
+}
+
+.card a{
+    color: rgb(56, 56, 56);
+}
+
+.card a:hover{
+    text-decoration: none;
+    color: rgb(56, 56, 56);
+}
+

@@ -1,34 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Playfair+Display+SC&display=swap');
+
+
 *{
     box-sizing: border-box;
     margin: 0;
 }
 
 body{
-    background-color: #ecebf1 !important;
+    background-color: #282537 !important;
+    background-image: -webkit-radial-gradient(top, circle cover, #272735 0%, #060818 80%);
 }
 
 .container{
     background-color: rgb(248, 247, 247);
     padding-top: 3%;
-    border: 10px ridge rgb(1,72,113);
+    border: 10px double rgb(1,72,113);
 }
 
 .container a{
-    background-color: rgb(10, 128, 104);
-    color: white;
-    padding: 10px 25px;
     display: inline-block;
-    /* margin-bottom: 2%; */
+    background-image: linear-gradient(to right, #25aae1, #4481eb);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+    padding: 10px 25px;
+    color: whitesmoke;
+    /* font-size: 18px; */
 }
 
 .container a:hover{
-    background-color: rgb(61, 61, 61);
-    color: white;
+    background-image: none;
+    background-color: #25aae1;
     text-decoration: none;
+    color:  white;
+    text-decoration: none;
+    box-shadow: none;
 }
 
-.movie-image{
+.movie-image{  
     position: relative;
+}
+
+.movie-image img{
+    object-fit: cover;
+    object-position:0% 0%;
 }
 
 h1{
@@ -36,12 +49,13 @@ h1{
     bottom: 15px;
     width: 80%;
     height: 20%;
-    padding: 10px;
+    padding: 15px 10px;
     background: rgb(255, 255, 255);
     opacity: 0.75;
     color: rgb(0, 7, 73) !important;
     z-index:10000;
     box-sizing: border-box;
+    font-family: 'Playfair Display SC', serif;
 }
 
 .container p::first-letter{
@@ -50,10 +64,10 @@ h1{
     border-radius: 2px;
     box-shadow: 3px 3px 0 red; */
     /* border: 2px dotted rgb(2, 49, 22); */
-    color: rgb(10, 128, 104);
-    font-size: 350%;
-    height: 50px;
-    padding: 6px 3px;
+    color: #4481eb;
+    font-size: 220%;
+    height: 100%;
+    padding: 2px 3px;
     margin-right: 6px;
     float: left;
 }
@@ -69,5 +83,7 @@ p{
     text-align: center;
     margin-bottom: 10%;
 }
+
+
 
 

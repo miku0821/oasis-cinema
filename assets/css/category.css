@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Playfair+Display+SC&display=swap');
 *{
     box-sizing: border-box;
     margin: 0;
@@ -15,16 +15,28 @@ main{
     /* border: 1px solid red; */
     width: 13%;
     float: left;
-    background-color:  rgb(1,72,113);
+    background-color:  #060818;
     height: 100vh;
     box-shadow: 1px 1px 15px black;
+    position: fixed;
 }
 
 .left-menu-bar h4{
-    font-family: 'Bungee Inline', cursive;
+    font-family: 'Odibee Sans', cursive;
     /* background-color: honeydew; */
     color: white;
-    padding: 20px;
+    padding: 26px;
+    font-size: 35px;
+}
+
+.logo span{
+    background: linear-gradient(
+        to right, 
+        hsl(98 100% 62%), 
+        hsl(204 100% 59%)
+      );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .left-menu-bar span{
@@ -43,7 +55,7 @@ main{
 }
 
 .nav-item:hover{
-    background-color:  rgb(0, 60, 92);
+    background-color: #282537;
     border-radius: 10px;
 }
 
@@ -66,18 +78,20 @@ main{
 }
 
 .menu-right a{
-    color: white;
-    background-color: rgb(1,72,113);
     padding: 10px;
-    border-radius: 5px;
+    background-image: linear-gradient(to right, #25aae1, #4481eb);
+    border: none;
+    color: white;
+    border-radius: 3px !important;
+    margin: 40px 0 !important;
 }
 
 .menu-right a:hover{
-    color: rgb(1,72,113);
+    background-image: none;
+    color: whitesmoke;
+    background-color: #25aae1;
     text-decoration: none;
-    border: 2px solid rgb(1,72,113);
-    background-color: white;
-    padding: 8px;
+    padding: 10px;
 }
 
 
@@ -106,7 +120,7 @@ section h2{
 
 
 .button{
-    background-color: rgb(10, 128, 104);
+    background-image: linear-gradient(to right, #25aae1, #4481eb);
     border: none;
     color: white;
     padding: 10px 100px;
@@ -116,9 +130,9 @@ section h2{
 }
 
 .button:hover{
-    background-color: rgb(61, 61, 61);
-    color: white;
-    text-decoration: none;
+    background-image: none;
+    background-color: #25aae1;
+    color: whitesmoke;
 }
 
 h3{
@@ -137,7 +151,7 @@ h3{
 
 
 .update a{
-    background-color: rgb(10, 128, 104);
+    background-color: #25aae1;
     color: white;
     padding: 5px 10px;
     border-radius: 20px;
@@ -145,14 +159,14 @@ h3{
 }
 
 .update a:hover{
-    background-color: rgb(61, 61, 61);
+    background-color:#4481eb;
     color: white;
     text-decoration: none;
 }
 
 .delete a{
-    border: 2px solid rgb(10, 128, 104);
-    color: rgb(10, 128, 104);
+    border: 2px solid #25aae1;
+    color: #25aae1;
     padding: 5px 10px;
     border-radius: 20px;
     font-size: 14px;
@@ -160,7 +174,7 @@ h3{
 
 
 .delete a:hover{
-    border: 2px solid rgb(61, 61, 61);
-    color: rgb(61, 61, 61);
+    border: 2px solid #4481eb;
+    color: #4481eb;
     text-decoration: none;
 }

@@ -1,5 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Playfair+Display+SC&display=swap');
+
 *{
     box-sizing: border-box;
     margin: 0;
+}
+
+body{
+    background-color: #282537 !important;
+    background-image: -webkit-radial-gradient(top, circle cover, #272735 0%, #060818 80%);
+}
+
+.top-bar{
+    overflow: auto;
+}
+
+.logo{
+    float: left;
+    padding-left: 2%;
+    padding-top: 1%;
+    color: snow !important;
+}
+
+.logo h4{
+    font-size: 40px;
+    font-family: 'Odibee Sans', cursive;
+
+}
+
+.logo span{
+    background: linear-gradient(
+        to right, 
+        hsl(98 100% 62%), 
+        hsl(204 100% 59%)
+      );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logo a{
+    color: snow;
+}
+
+.logo a:hover{
+    text-decoration: none;
+    color: snow;
+}
+
+.greeting{
+    float: right;
+    padding-right: 3%;
+    padding-top: 1%;
+    color: snow;
+}
+
+.username{
+    margin-right: 15px;
+}
+
+.logout a{
+    color: white;
+}
+
+.logout a:hover{
+    color: #25aae1;
+    text-decoration: none;
+}
+
+.login a{
+    color: #25aae1;
+    margin-right: 10px;
+}
+
+.register a{
+    color: #25aae1;
+    margin-left: 10px;
+}
+
+.navbar{
+    clear: both;
+}
+
+.nav-item{
+    padding: 10px 40px;
+}
+
+.nav-item a{
+    color: snow;
+}
+
+.nav-item a:hover{
+    text-decoration: none;
+    color: #25aae1;
+}
+
+/* carousel */
+
+.carousel-inner{
+    background-color: rgb(243, 247, 252);
+}
+
+.carousel-item img{
+    width:  1100px!important;
+    height: 480px;
+    object-fit: cover;
+}
+
+.carousel-item h3{
+    color: rgb(13, 14, 46);
+    font-size: 60px;
+    margin-bottom: 10%;
+    font-family: 'Playfair Display SC', serif;
+}
+
+.carousel-item a{
+    background-image: linear-gradient(to right, #25aae1, #4481eb);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+    padding: 15px 35px;
+    border-radius: 10px;
+    color: whitesmoke;
+    font-size: 18px;
+}
+
+.carousel-item a:hover{
+    border: 3px dashed #4481eb;
+    border-radius: 10px;
+    color:  #4481eb;
+    text-decoration: none;
+    background: none;
+    box-shadow: none;
+}
+
+
+/* Ranking */
+
+.ranking{
+    /* border: 1px solid blue; */
+    width: 70%;
+    margin: 8% auto;
+}
+
+.no-ranking{
+    color: whitesmoke;
+    font-size: 30px !important;
+    margin: 2% auto;
+}
+
+.ranking h2{
+    text-align: center;
+    color: whitesmoke;
+    font-size: 40px;
+    padding-bottom: 3%;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(to right, #25aae1, #4481eb);
+    border-image-slice: 1;
+}
+
+.ranking-card{
+    margin: 3% 6% !important;
+    border: none;
+    background-color: transparent !important;
+    color: whitesmoke;
+}
+
+.ranking-card h4{
+    margin-top: 3%;
+    text-align: center;
+    font-size: 30px;
+}
+
+/* information */
+
+.info{
+    /* border: 1px solid green; */
+    margin: 5% auto;
+}
+
+.info h2{
+    text-align: center;
+}
+
+.info-items{
+    /* border: 1px solid red; */
+    padding: 0;
+    margin: auto;
+}
+
+.info .row{
+    /* border: 1px solid olive; */
+    width: 100%;
+    margin: 4% auto;
+}
+
+.info .card{
+    width: 100%;
+    margin: 0 !important;
+    margin-top: 25px !important;
+    border: none;
+    /* border: 1px solid green; */
+    background-color: rgb(243, 247, 252);
+}
+
+.info .card-body{
+    height: 60px;
+}
+
+.info h3{
+    font-family: 'Playfair Display SC', serif;
+}
+
+.info-items img{
+    height: 300px !important;
+    object-fit: cover;
+}
+
+.info a{
+    color: rgb(44, 44, 44);
+}
+
+.info a:hover{
+    color: rgb(44, 44, 44);
+    text-decoration: none;
+}
+
+/* footer */
+
+footer{
+    background-color: rgb(56, 72, 88);
+    overflow: auto;
+}
+
+.top-button a{
+    color: snow;  
+}
+
+.social-media{
+    text-align: center;
+    margin-right: 8%;
+    width: 15%;
+    /* border: 1px solid snow; */
+    float: right;
+}
+
+.social-media h6{
+    color: snow;
+}
+
+.social-media ul{
+    padding: 0px;
+}
+
+.social-media li{
+    display: inline-block;
+    text-decoration: none;
+    /* border: 1px solid snow; */
+    margin-right: 3%;
+}
+
+.social-media a{
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: auto;
+    background-color: snow;
+    border-radius: 100%;
+    line-height: 30px;
+    color:rgb(56, 72, 88);
+}
+
+.copy-right{
+    clear: both;
+    text-align: center;
+    margin-bottom: 1%;
 }
 

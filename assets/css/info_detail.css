@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Girassol&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Playfair+Display+SC&display=swap');
+
 
 *{
     box-sizing: border-box;
@@ -6,7 +7,9 @@
 }
 
 body{
-    background-color: #ecebf1 !important;
+    background-color: #282537 !important;
+    background-image: -webkit-radial-gradient(top, circle cover, #272735 0%, #060818 80%);
+    height: 100vh;
 }
 
 .container{
@@ -17,22 +20,32 @@ body{
 
 
 .container a{
-    background-color: rgb(10, 128, 104);
-    color: white;
-    padding: 10px 25px;
     display: inline-block;
     /* margin-bottom: 2%; */
+    background-image: linear-gradient(to right, #25aae1, #4481eb);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+    padding: 10px 25px;
+    color: whitesmoke;
+    font-size: 18px;
 }
 
 .container a:hover{
-    background-color: rgb(61, 61, 61);
-    color: white;
+    background-image: none;
+    background-color: #25aae1;
     text-decoration: none;
+    color:  white;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+img{
+    object-fit: cover;
+    object-position: 0% 0%;
 }
 
 h1{
     padding: 0 10%;
-    font-family: 'Girassol', cursive;
+    font-family: 'Playfair Display SC', serif;
 }
 
 hr{

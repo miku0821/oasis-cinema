@@ -22,7 +22,7 @@ $article_detail = $article->getArticle($article_id);
             <a href="editArticle.php?article_id=<?php echo $article_id;?>"><i class="fas fa-pen-nib"></i> EDIT ARTICLE</a>
         </div>
         <div class="movie-image">
-            <img src="../images/<?php echo $article_detail['image'];?>" alt="image" width="100%">
+            <img src="../assets/images/<?php echo $article_detail['image'];?>" alt="image" width="100%" height="500px">
             <h1 class="my-4"><span><?php echo $article_detail['title'];?></span></h1><hr>
         </div>
 
@@ -36,3 +36,4 @@ $article_detail = $article->getArticle($article_id);
     </div>
 </body>
 </html>
+

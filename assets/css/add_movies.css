@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Playfair+Display+SC&display=swap');
 *{
     box-sizing: border-box;
     margin: 0;
@@ -15,16 +15,18 @@ main{
     /* border: 1px solid red; */
     width: 13%;
     float: left;
-    background-color:  rgb(1,72,113);
+    background-color:  #060818;
     height: 100vh;
     box-shadow: 1px 1px 15px black;
+    position: fixed;
 }
 
 .left-menu-bar h4{
-    font-family: 'Bungee Inline', cursive;
+    font-family: 'Odibee Sans', cursive;
     /* background-color: honeydew; */
     color: white;
-    padding: 20px;
+    padding: 26px;
+    font-size: 35px;
 }
 
 .left-menu-bar span{
@@ -43,7 +45,7 @@ main{
 }
 
 .nav-item:hover{
-    background-color:  rgb(0, 60, 92);
+    background-color: #282537;
     border-radius: 10px;
 }
 
@@ -65,19 +67,30 @@ main{
     font-weight: bolder;
 }
 
+.logo span{
+    background: linear-gradient(
+        to right, 
+        hsl(98 100% 62%), 
+        hsl(204 100% 59%)
+      );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .menu-right a{
-    color: white;
-    background-color: rgb(1,72,113);
     padding: 10px;
-    border-radius: 5px;
+    background-image: linear-gradient(to right, #25aae1, #4481eb);
+    border: none;
+    color: white;
+    border-radius: 3px !important;
+    margin: 40px 0 !important;
 }
 
 .menu-right a:hover{
-    color: rgb(1,72,113);
+    background-image: none;
+    background-color: #25aae1;
+    color: whitesmoke;
     text-decoration: none;
-    border: 2px solid rgb(1,72,113);
-    background-color: white;
-    padding: 8px;
 }
 
 
@@ -104,7 +117,9 @@ form{
     margin: auto;
 }
 
-
+.f-image{
+    margin-top: 9%;
+}
 
 .category{
     border: 1px solid #cbd2d4;
@@ -113,11 +128,7 @@ form{
     margin: 20px 0;
 }
 
-.screen-date{
-    margin-top: 20px;
-}
-
-.button{
+/* .button{
     background-color: rgb(10, 128, 104);
     border: none;
     color: white;
@@ -125,10 +136,21 @@ form{
     border-radius: 5px;
     display: block;
     margin-top: 20px;
+} */
+
+.button{
+    padding: 10px 200px;
+    background-image: linear-gradient(to right, #25aae1, #4481eb);
+    border: none;
+    color: white;
+    border-radius: 3px !important;
+    display: block;
+    margin-top: 20px;
 }
 
 .button:hover{
-    background-color: rgb(61, 61, 61);
-    color: white;
-    text-decoration: none;
+    background-image: none;
+    background-color: whitesmoke;
+    color: #4481eb;
+    border: 1px solid #4481eb;
 }

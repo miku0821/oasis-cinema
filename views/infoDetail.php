@@ -21,7 +21,7 @@ $posts = $information->getPostDetail($info_id);
         <div class="edit-button text-right">
             <a href="editPost.php?info_id=<?php echo $info_id;?>"><i class="fas fa-pen-nib"></i>EDIT POST</a>
         </div>
-        <img src="../images/<?php echo $posts['image'];?>" alt="image" height="250px" width="100%">
+        <img src="../assets/images/<?php echo $posts['image'];?>" alt="image" height="350px" width="100%">
         <h1 class="my-4"><?php echo $posts['title'];?></h1><hr>
         <p><?php echo $posts['message'];?></p>
     </div>

@@ -1,9 +1,12 @@
 <?php
 include "../classes/movie.php";
-include "../classes/schedule/php";
+include "../classes/schedule.php";
 $schedule_id = $_GET['schedule_id'];
 $movie = new Movie;
 $movie_details = $movie->getMovieDetails();
+$schedule = new Schedule;
+$schedule_details = $schedule->getScheduleRow($schedule_id);
+$end_date = strtotime($schedule_details['end_time']);
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +48,7 @@ $movie_details = $movie->getMovieDetails();
                             <a href="information.php">Offers &Information</a>                            
                         </li>
                         <li class="nav-item">
-                            <a href="">News & Articles</a>
+                            <a href="news.php">News & Articles</a>
                         </li>
                     </ul>
                 </nav>
@@ -55,10 +58,10 @@ $movie_details = $movie->getMovieDetails();
                 <div class="date h5"><?php echo date("Y/m/d");?></div>
                 <a href="logout.php">LOGOUT</a>
             </div>
-            <h2>Add Schedule</h2>
+            <h2>Edit Schedule</h2>
 
         <!-- form -->
-            <form action="../actions/addSchedule.php" method="post">
+            <form action="../actions/updateSchedule.php" method="post">
                 <div class="form-row">
                     <div class="form-group">
                             <?php
@@ -72,8 +75,8 @@ $movie_details = $movie->getMovieDetails();
                             ?>
 
                             <label for="movie">Select Movie</label><br>
-                            <select name="movie" id="movie" required>
-                            
+                            <select name="new_movie" id="movie" required>
+                            <option hidden value="<?= $schedule_details['title'];?>"><?= $schedule_details['title'];?></option>
                             <?php
                                     foreach($movie_details as $movie_detail){
                                 ?>
@@ -90,27 +93,28 @@ $movie_details = $movie->getMovieDetails();
                 <div class="form-row">
                     <div class="form-group">
                         <label for="screen">Screen Number</label>
-                        <input type="number" name="screen" id="screen" class="form-control" required>
+                        <input type="number" name="new_screen" id="screen" value="<?= $schedule_details['screen_num'];?>" class="form-control" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="date">Date</label>
-                        <input type="date" name="date" id="date" class="form-control" required>
+                        <input type="date" name="new_date" id="date" value="<?= $schedule_details['date'];?>" class="form-control" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="st_time">Starting Time</label>
-                        <input type="time" name="st_time" class="form-control" required>
+                        <input type="time" name="new_st_time" value="<?= $schedule_details['st_time'];?>" class="form-control" required>
                     </div>
                     <div class="form-group col-md-4 ml-3">
                         <label for="end_time">Ending Time</label>
-                        <input type="time" name="end_time" class="form-control" required>
+                        <input type="time" name="new_end_time" value="<?= $end_time = date("H:i", $end_date);?>" class="form-control" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group m-auto">
+                        <input type="hidden" name="schedule_id" value="<?= $schedule_id;?>">
                         <button type="submit" name="add" class="button">Add</button>
                     </div>
                 </div>

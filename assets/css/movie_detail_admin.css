@@ -1,0 +1,188 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body{
+    background-color: #282537 !important;
+    background-image: -webkit-radial-gradient(top, circle cover, #272735 0%, #060818 80%);
+}
+
+main{
+    padding-bottom: 30px;
+}
+
+.trailer{
+    /* border: 1px solid red; */
+    height: 500px;
+    position: relative;
+}
+
+.trailer img{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position:0% 0%;
+}
+
+.trailer h4{
+    color: whitesmoke;  
+    position: absolute;
+    bottom: 50%;
+    left: 5%;
+    z-index: 10;
+    font-size: 50px;
+}
+
+.trailer button{
+    color: whitesmoke;
+    position: absolute;
+    bottom: 30%;
+    left: 5%;
+    padding: 10px 25px;
+    background-color: transparent;
+    border: 1px solid whitesmoke;
+    border-radius: unset;
+    font-size: 20px;
+}
+
+.trailer button:hover{
+    color: whitesmoke;
+    border: none;
+    background-image: linear-gradient(to right, #25aae1, #4481eb);
+}
+
+.movie-intro{
+    /* border: 1px solid green !important; */
+    /* height: 600px; */
+}
+
+.movie-poster{
+    /* border: 1px solid bisque; */
+    width: 45%;
+    height: 100%;
+    float: left;
+    overflow: auto;
+}
+
+.movie-intro img{
+    width: 40%;
+    margin: 12% 0;
+    margin-left: 40%;
+}
+
+.movie-details{
+    /* border: 1px solid orange; */
+    width: 55%;
+    height: 100%;
+    float: right;
+    color: whitesmoke;
+}
+
+.movie-details h3{
+    color: #4481eb;
+    margin: 10% 3% 2% 3%;
+}
+
+.movie-details p{
+    font-size: 20px;
+    width: 80%;
+    margin-left: 3%;
+    line-height: 2.0;
+}
+
+.movie-details ul{
+    margin-left: 4%;
+    margin-top: 2%;
+}
+
+.movie-details li{
+    color: whitesmoke;
+    font-size: 16px;
+    margin-right: 5px;
+    padding: 10px !important;
+    /* border: 1px solid red; */
+}
+
+
+.calender{
+    clear: both;
+}
+
+.calender button{
+    padding: 15px 20px;
+    color: white;
+    background-image: linear-gradient(to right, #25aae1, #4481eb);
+    font-size: 18px;
+    border-radius: 3px;
+    border: unset;
+    margin: 10% 2px 2% 2px;
+}
+
+.calender button:hover{
+    background-image: unset;
+    background-color: whitesmoke;
+    color: #4481eb;
+}
+
+.table{
+    width: 920px !important;
+    margin: 0 auto;
+}
+
+.table .screen_num{
+    color: whitesmoke;
+    font-size: 22px;
+    font-weight: bolder;
+    margin-top: 2%;
+}
+
+.table td{
+    color: whitesmoke;
+    font-size: 20px;
+    margin: 0 !important;
+}
+
+.table .buttons{
+    /* border: 1px solid red !important; */
+    line-height: 60px;
+    width: 35% !important;
+}
+
+.table p{
+    padding: 12px 40px !important;
+    border-radius: 2px !important;
+    background-color: rgba(173, 173, 173, 0.404);
+    color: rgba(223, 223, 223, 0.753);
+}
+
+.table a{
+    /* background-color: cadetblue; */
+    padding: 12px 40px;
+    color: #25aae1;
+    border: 3px solid #25aae1;
+    border-radius: 2px;
+}
+
+.table a:hover{
+    color: #282537;
+    background-color: #25aae1;
+    text-decoration: none;
+}
+
+.table .delete{
+    color: whitesmoke;
+    background-color: #4481eb;
+    border-radius: 10px;
+    border: none;
+    padding: 8px 10px;
+}
+
+.table .edit{
+    color: whitesmoke;
+    background-color: #4481eb;
+    border-radius: 10px; 
+    border: none;
+    padding: 8px 18px;
+    margin-right: 2%;
+}

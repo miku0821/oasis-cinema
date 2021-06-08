@@ -9,14 +9,15 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
+    <link rel="stylesheet" href="../assets/css/register.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 </head>
 <body>
     <header></header>
     <div class="container mt-5 w-50">
-        <h2>Registration</h2><hr>
-        <form action="../actions/register.php" method="post">
-            <div class="form-row">
+        <h3>Registration</h3>
+        <form action="../actions/register.php" method="post" class="pb-3">
+            <div class="form-row mt-4">
                 <div class="form-group col-md-6">
                     <label for="f_name">First Name</label>
                     <input type="text" name="first_name" id="f_name" class="form-control" placeholder="First Name" required>
@@ -42,7 +43,7 @@ session_start();
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group col-md-12">
+                <div class="form-group col-md-6">
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" class="form-control" placeholder="Email">
                 </div>
@@ -54,27 +55,27 @@ session_start();
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group col-md-12">
+                <div class="form-group col-md-6">
                     <label for="address">Address</label>
                     <input type="text" name="address" id="address" class="form-control" placeholder="Address">
                 </div>
             </div>
-        <h3 class="mt-4">Create an account</h3><hr>
-            <div class="form-row">
-                <div class="form-group col-md-12">
+        <h3 class="mt-4">Create an Account</h3>
+            <div class="form-row mt-4">
+                <div class="form-group col-md-6">
                     <label for="username">Username</label>
                     <input type="text" name="username" id="username" class="form-control" placeholder="Username" required>
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group col-md-12">
+                <div class="form-group col-md-6">
                     <label for="p_word">Password</label>
                     <input type="password" name="password" id="p_word" class="form-control" placeholder="Password" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group">
-                    <button type="submit" class="btn btn-success" value="register">Register</button>
+                    <button type="submit" value="register">Create Account</button>
                 </div>
             </div>
         </form>

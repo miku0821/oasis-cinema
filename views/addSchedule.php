@@ -1,5 +1,7 @@
 <?php
 include "../classes/movie.php";
+include "../classes/schedule.php";
+$schedule = new Schedule;
 $movie = new Movie;
 $movie_details = $movie->getMovieDetails();
 ?>
@@ -19,8 +21,8 @@ $movie_details = $movie->getMovieDetails();
     <div class="f-container">
         <!-- menubar -->
         <div class="left-menu-bar">  
-            <div class="company-name">
-                <h4>Oas<span>i</span>s Cinema</h4>
+            <div class="logo">
+                <h4> Oas<span>i</span>s C<span>i</span>nema</h4>
             </div>
                 <nav class="navbar">
                     <ul class="navbar-nav">
@@ -40,10 +42,13 @@ $movie_details = $movie->getMovieDetails();
                             <a href="category.php">Category</a>
                         </li>
                         <li class="nav-item">
-                            <a href="information.php">Offers &Information</a>                            
+                            <a href="information.php">Offers & Information</a>                            
                         </li>
                         <li class="nav-item">
-                            <a href="">News & Articles</a>
+                            <a href="article.php">News & Articles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="nowPlayingMovieAdmin.php">Now Playing Movie</a>
                         </li>
                     </ul>
                 </nav>
@@ -51,7 +56,7 @@ $movie_details = $movie->getMovieDetails();
         <section>
             <div class="menu-right">
                 <div class="date h5"><?php echo date("Y/m/d");?></div>
-                <a href="logout.php">LOGOUT</a>
+                <a href="../actions/logout.php">LOGOUT</a>
             </div>
             <h2>Add Schedule</h2>
 
@@ -70,15 +75,20 @@ $movie_details = $movie->getMovieDetails();
                             ?>
 
                             <label for="movie">Select Movie</label><br>
-                            <select name="movie" id="movie" required>
+                            <select name="movie" id="movie" class="form-control" required>
                             
                             <?php
                                     foreach($movie_details as $movie_detail){
+                                    $date = $movie_detail['st_date'];
+                                    $time = $movie_detail['time'];
+                                    $screen_date = strtotime("$date $time");
+                                        if($screen_date <= time()){     
                                 ?>
                         
                         <option value="<?php echo $movie_detail['movie_id'];?>"><?php echo $movie_detail['title']?></option>
                         
                             <?php
+                                        }
                                     } 
                                 }
                             ?>

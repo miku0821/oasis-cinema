@@ -15,7 +15,7 @@
             <form action="../actions/addInformation.php" method="POST" enctype = "multipart/form-data">
                 <div class="form-row mt-2">
                     <div class="form-group col-md-9 mx-auto">
-                        <label for="title">TITLE</label>
+                        <label for="title">Title</label>
                         <input type="text" name="title" id="title" class="form-control">
                     </div>
                 </div>

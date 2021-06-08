@@ -5,7 +5,7 @@ class Article extends Database{
         $sql = "INSERT INTO articles (title, date, message, image, trailer) VALUES ('$title', '$date', '$message', '$image_name', '$trailer')";
 
         if($this->conn->query($sql)){
-            $destination = "../images".basename($image_name);
+            $destination = "../assets/images".basename($image_name);
 
             if(move_uploaded_file($tmp_image_name, $destination)){
                 header("location: ../views/article.php");
@@ -40,6 +40,29 @@ class Article extends Database{
         }
     }
 
+    public function getLatestArticle(){
+        $sql = "SELECT title, image, article_id FROM articles WHERE article_id = (SELECT MAX(
+            article_id) FROM articles)";
+        $result = $this->conn->query($sql);
+
+        if($result->num_rows == 1){
+            return $result->fetch_assoc();
+        }else{
+            die("Error: ".$this->conn->error);
+        }
+    }
+
+    public function getLateArticle(){
+        $sql = "SELECT title, image, article_id FROM articles ORDER BY article_id DESC LIMIT 1, 2";
+        $result = $this->conn->query($sql);
+
+        if($result->num_rows == 2){
+            return $result;
+        }else{
+            die("Error: ".$this->conn->error);
+        }
+    }
+
 
     public function updateArticleAndImage($article_id, $new_title, $new_date, $new_message, $new_image_name, $new_tmp_image_name, $new_trailer){
         $sql = "UPDATE articles
@@ -51,7 +74,7 @@ class Article extends Database{
                 WHERE article_id = '$article_id'";
 
         if($this->conn->query($sql)){
-            $destination = "../images/".basename($new_image_name);
+            $destination = "../assets/images/".basename($new_image_name);
                 
             if(move_uploaded_file($new_tmp_image_name, $destination)){
                 header("location: ../views/article.php");
@@ -93,3 +116,4 @@ class Article extends Database{
     }
 }
 ?>
+

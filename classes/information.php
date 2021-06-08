@@ -5,7 +5,7 @@ class Information extends Database{
         $sql ="INSERT INTO information (title, image, message, date) VALUES ('$title', '$image_name', '$message', '$date')";
 
         if($this->conn->query($sql)){
-            $destination = "../images/".basename($image_name);
+            $destination = "../assets/images/".basename($image_name);
             
             if(move_uploaded_file($tmp_image_name, $destination)){
                 header("location: ../views/information.php");
@@ -43,6 +43,28 @@ class Information extends Database{
         }
     }
 
+    // public function getLatestPost(){
+    //     $sql = "SELECT title, image, information_id FROM information WHERE information_id=(SELECT MAX(information_id) FROM information)";
+    //     $result = $this->conn->query($sql);
+
+    //     if($result->num_rows == 1){
+    //         return $result->fetch_assoc();
+    //     }else{
+    //         die("Error: ".$this->conn->error);
+    //     }
+    // }
+
+    public function getLatePost(){
+        $sql = "SELECT title, image, information_id FROM information ORDER BY information_id DESC LIMIT 4";
+        $result = $this->conn->query($sql);
+
+        if($result->num_rows <= 4){
+            return $result;
+        }else{
+            die("Error: ".$this->conn->error);
+        }
+    }
+
     public function updatePostAndImage($info_id, $new_title, $new_image_name, $new_tmp_image_name, $new_message, $new_date){
         $sql = "UPDATE information
                 SET title = '$new_title',
@@ -52,7 +74,7 @@ class Information extends Database{
                 WHERE information_id = '$info_id'";
 
         if($this->conn->query($sql)){
-            $destination = "../images/".basename($new_image_name);
+            $destination = "../assets/images/".basename($new_image_name);
                 
             if(move_uploaded_file($new_tmp_image_name, $destination)){
                 header("location: ../views/information.php");

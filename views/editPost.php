@@ -17,7 +17,7 @@ $post_details = $info->getPostDetail($info_id);
 </head>
 <body>
     <div class="container mt-5 w-50">
-    <h1>Add Information and Offers</h1>
+    <h1 class="text-center">Add Information and Offers</h1>
         <form action="../actions/editPost.php" method="POST" enctype = "multipart/form-data">
             <div class="form-row mt-2">
                 <div class="form-group col-md-9 mx-auto">
@@ -32,7 +32,7 @@ $post_details = $info->getPostDetail($info_id);
                 </div>
             </div>
             <div class="info-image text-center mt-4">
-                <img src="../images/<?= $post_details['image'];?>" alt="image" width="50%">
+                <img src="../assets/images/<?= $post_details['image'];?>" alt="image" width="50%">
             </div>
             <div class="form-row mt-3">
                 <div class="form-group col-md-9 mx-auto">

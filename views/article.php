@@ -21,8 +21,8 @@ $article_details = $article->showArticle();
     <div class="f-container">
         <!-- menubar -->
         <div class="left-menu-bar">  
-            <div class="company-name">
-                <h4>Oas<span>i</span>s Cinema</h4>
+            <div class="logo">
+                <h4> Oas<span>i</span>s C<span>i</span>nema</h4>
             </div>
                 <nav class="navbar">
                     <ul class="navbar-nav">
@@ -47,13 +47,16 @@ $article_details = $article->showArticle();
                         <li class="nav-item">
                             <a href="article.php">News & Articles</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="nowPlayingMovieAdmin.php">Now Playing Movie</a>
+                        </li>
                     </ul>
                 </nav>
         </div>
         <section>
             <div class="menu-right">
                 <div class="date h5"><?php echo date("Y/m/d");?></div>
-                <a href="logout.php">LOGOUT</a>
+                <a href="../actions/logout.php">LOGOUT</a>
             </div>
             <h2>News and Articles</h2>
 
@@ -90,7 +93,7 @@ $article_details = $article->showArticle();
                             <td class="col-md-4"><?php echo $article_detail['title'];?></td>
                             <td class="col-md-2"><?php echo $article_detail['date'];?></td>
                             <td class="details col-md-2"><a href="articleDetail.php?article_id=<?php echo $article_detail['article_id'];?>">Details</a></td>
-                            <td class="delete col-md-2"><a href="../actions/deleteArticle.php?article_id=<?php echo $article_detail['article_id'];?>">DELETE</a></td>
+                            <td class="delete col-md-2"><a onClick="return confirm('Are you sure you want to delete?')" href="../actions/deleteArticle.php?article_id=<?php echo $article_detail['article_id'];?>">Delete</a></td>
                         </tr>
 
                     <?php

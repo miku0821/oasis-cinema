@@ -9,5 +9,5 @@ $screen_num = $_POST['screen'];
 // $end_timestamp = strtotime("$date $end_time");
 
 $schedule = new Schedule;
-$schedule->addSchedule($movie, $st_time, $date, $screen_num);
+$schedule->addSchedule($movie, $st_time, $date, $screen_num, $end_time);
 ?>

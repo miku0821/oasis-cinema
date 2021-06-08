@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container mt-5 w-50">
-        <h1>Add News and Articles</h1>
+        <h1 class="text-center">Add News and Articles</h1>
         <form action="../actions/addArticle.php" method="POST" enctype = "multipart/form-data">
             <div class="form-row mt-2">
                 <div class="form-group col-md-9 mx-auto">

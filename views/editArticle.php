@@ -18,7 +18,7 @@
 </head>
 <body>
     <div class="container mt-5 w-50">
-        <h1>Edit News and Articles</h1>
+        <h1 class="text-center">Edit News and Articles</h1>
         <form action="../actions/editArticle.php" method="POST" enctype = "multipart/form-data">
             <div class="form-row mt-2">
                 <div class="form-group col-md-9 mx-auto">
@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="movie-image text-center mt-2">
-                <img src="../images/<?= $article_details['image'];?>" alt="movie_image" width="50%" class="mx-auto">
+                <img src="../assets/images/<?= $article_details['image'];?>" alt="movie_image" width="50%" class="mx-auto">
             </div>
             <div class="form-row mt-2">
                 <div class="form-group col-md-9 mx-auto">
